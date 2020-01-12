@@ -173,7 +173,7 @@ export default function Feeds() {
                     paddingVertical: 10,
                     paddingHorizontal: 10,
                     alignItems: "center",
-                    width: 0.4 * width,
+                    width: 0.36 * width,
                     margin: 10
                   }}
                 >

@@ -14,7 +14,10 @@ import AntDesign from "react-native-vector-icons/AntDesign";
 export default class Profile extends Component {
   render() {
     return (
-      <ScrollView style={styles.scrolviewContainer}>
+      <ScrollView
+        style={styles.scrolviewContainer}
+        showsVerticalScrollIndicator={false}
+      >
         <View style={styles.container}>
           <View style={styles.profileContainer}>
             <View style={styles.pictureContainer}>
@@ -361,7 +364,7 @@ export default class Profile extends Component {
             <Text style={styles.contactLabel}>Email</Text>
           </View>
           <View style={{ flex: 6 }}>
-            <Text style={styles.contactValue}>herisusanto.id@gmail.com</Text>
+            <Text style={styles.contactValue}>ammyjohnson@gmail.com</Text>
           </View>
         </View>
         <View style={styles.contactInfo}>
@@ -408,17 +411,20 @@ export const { width, height } = Dimensions.get("window");
 const styles = StyleSheet.create({
   scrolviewContainer: {
     flex: 1,
-    marginVertical: 15
+    marginVertical: 15,
+    // marginHorizontal: 15,
+    paddingHorizontal: 20
   },
   container: {
     // flex: 1,
     alignItems: "center",
     backgroundColor: "#00AA13",
-    marginHorizontal: 10,
+    // marginHorizontal: 20,
     marginVertical: 10,
     height: 0.4 * height,
     borderRadius: 20,
-    flexDirection: "column"
+    flexDirection: "column",
+    width: 0.9 * width
   },
   profileContainer: {
     flex: 4,
@@ -432,8 +438,8 @@ const styles = StyleSheet.create({
   balanceContainer: {
     flex: 6,
     backgroundColor: "#fff",
-    width: 0.95 * width,
-    borderColor: "grey",
+    width: 0.9 * width,
+    borderColor: "#00AA13",
     borderWidth: 1,
     borderRadius: 20,
     flexDirection: "column"
@@ -545,7 +551,7 @@ const styles = StyleSheet.create({
     width: 0.5 * width,
     height: 0.15 * height,
     borderRadius: 10,
-    borderWidth: 1,
+    borderWidth: 0.5,
     borderColor: "grey",
     padding: 20,
     marginHorizontal: 10,

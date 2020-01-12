@@ -137,8 +137,9 @@ class Home extends Component {
                   marginHorizontal: 5,
                   marginTop: 10,
                   marginBottom: 5,
-                  width: 0.44 * width
-                  // flexDirection: "column"
+                  width: 0.44 * width,
+                  flexDirection: "column",
+                  flexWrap: "wrap"
                 }}
               >
                 <Image
