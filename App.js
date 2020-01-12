@@ -17,6 +17,7 @@ import Detail from "./src/components/Detail";
 import Settings from "./src/components/Settings";
 import Feeds from "./src/components/Feeds";
 import Registrasi from "./src/components/Registrasi";
+import Profile from "./src/components/Profile";
 import { Provider } from "react-redux";
 import configureStore from "./src/redux/store";
 const store = configureStore();
@@ -104,7 +105,7 @@ const HomeStack = createStackNavigator({
           fontWeight: "bold",
           fontSize: 24,
           alignSelf: "center",
-          textAlign: "center",
+          textAlign: "left",
           justifyContent: "center",
           flex: 1,
           textAlignVertical: "center"
@@ -161,10 +162,10 @@ const SettingStack = createStackNavigator({
 });
 const AccountStack = createStackNavigator({
   Setting: {
-    screen: Settings,
+    screen: Profile,
     navigationOptions: ({ navigation }) => {
       return {
-        headerTitle: "Home",
+        headerTitle: "Profile",
         headerTintColor: "#00AA13",
         headerStyle: {
           backgroundColor: "#fff"
@@ -203,21 +204,21 @@ const TabNavigator = createBottomTabNavigator(
         )
       }
     },
-    Settings: {
-      screen: SettingStack,
-      navigationOptions: {
-        tabBarLabel: "Home",
-        tabBarIcon: ({ tintColor, activeTintColor }) => (
-          <FontAwesome5 name="home" size={25} color={tintColor} />
-        )
-      }
-    },
+    // Settings: {
+    //   screen: SettingStack,
+    //   navigationOptions: {
+    //     tabBarLabel: "Home",
+    //     tabBarIcon: ({ tintColor, activeTintColor }) => (
+    //       <FontAwesome5 name="home" size={25} color={tintColor} />
+    //     )
+    //   }
+    // },
     Account: {
       screen: AccountStack,
       navigationOptions: {
-        tabBarLabel: "Account",
+        tabBarLabel: "Profile",
         tabBarIcon: ({ tintColor, activeTintColor }) => (
-          <FontAwesome5 name="user" size={25} color={tintColor} />
+          <FontAwesome5 name="user-alt" size={25} color={tintColor} />
         )
       }
     }

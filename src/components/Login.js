@@ -31,10 +31,10 @@ export default class Login extends Component {
   }
   handleLogin() {
     // this.props.navigation.navigate("Home");
-    if (this.state.username === "user01" && this.state.password === "123") {
+    if (this.state.username === "user" && this.state.password === "1") {
       this.props.navigation.navigate("Home");
     } else {
-      alert(`Use username "user01" & password "123"`);
+      alert(`Use username "user" & password "1"`);
       this.setState({
         username: "",
         password: ""
