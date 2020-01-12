@@ -14,6 +14,7 @@ import FontAwesomeIcon from "react-native-vector-icons/FontAwesome";
 import { Sae } from "react-native-textinput-effects";
 import logo from "../assets/bg_registrasi.png";
 import SplashScreen from "react-native-splash-screen";
+import { CheckBox } from "react-native-elements";
 
 export default class Registrasi extends Component {
   constructor(props) {
@@ -21,10 +22,13 @@ export default class Registrasi extends Component {
 
     this.state = {
       username: "",
-      password: ""
+      password: "",
+      isDriver: false,
+      isDonatur: true
     };
     this.handleLogin = this.handleLogin.bind(this);
     this.handleBack = this.handleBack.bind(this);
+    this.handleRole = this.handleRole.bind(this);
   }
   componentDidMount() {
     SplashScreen.hide();
@@ -44,6 +48,19 @@ export default class Registrasi extends Component {
   handleBack() {
     this.props.navigation.navigate("Login");
   }
+  handleRole(role) {
+    if (role == "driver") {
+      this.setState({
+        isDriver: !this.state.isDriver,
+        isDonatur: false
+      });
+    } else {
+      this.setState({
+        isDriver: false,
+        isDonatur: !this.state.isDonatur
+      });
+    }
+  }
   render() {
     return (
       <View style={styles.boxContainer}>
@@ -62,7 +79,7 @@ export default class Registrasi extends Component {
         >
           <Image
             style={styles.logo}
-            source={{ uri: "https://i.pravatar.cc/150?u=a042581f4e29026704d" }}
+            source={{ uri: "https://i.pravatar.cc/150?img=10" }}
           />
         </View>
 
@@ -135,22 +152,6 @@ export default class Registrasi extends Component {
             <Sae
               inputStyle={styles.input}
               labelStyle={styles.label}
-              label={"Role"}
-              iconClass={FontAwesomeIcon}
-              iconColor={"#00AA13"}
-              iconName={"pencil-square-o"}
-              inputPadding={16}
-              labelHeight={24}
-              borderHeight={2}
-              borderColor={"blue"}
-              autoCapitalize={"none"}
-              autoCorrect={false}
-              onChangeText={username => this.setState({ username })}
-              value={this.state.username}
-            />
-            <Sae
-              inputStyle={styles.input}
-              labelStyle={styles.label}
               label={"Email"}
               iconClass={FontAwesomeIcon}
               iconColor={"#00AA13"}
@@ -180,24 +181,80 @@ export default class Registrasi extends Component {
               value={this.state.password}
               secureTextEntry={true}
             />
-
-            <TouchableOpacity onPress={() => this.handleLogin()}>
-              <Text style={styles.button}>Register</Text>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => this.handleBack()}>
-              <Text style={{ textAlign: "center", marginTop: 10 }}>
-                Kembali ke{" "}
-                <Text
-                  style={{
-                    color: "#00AA13",
-                    textDecorationLine: "underline",
-                    fontWeight: "bold"
-                  }}
-                >
-                  Login
+            <Text
+              style={{
+                color: "#00AA13",
+                textAlign: "center",
+                marginTop: 25
+              }}
+            >
+              Silahkan pilih role Anda
+            </Text>
+            <View
+              style={{
+                flexDirection: "row",
+                justifyContent: "center",
+                marginVertical: 5
+              }}
+            >
+              <CheckBox
+                center
+                title="Driver"
+                checkedIcon="dot-circle-o"
+                uncheckedIcon="circle-o"
+                checked={this.state.isDriver}
+                containerStyle={{
+                  width: 0.3 * width,
+                  borderColor: "#fff",
+                  backgroundColor: "#fff"
+                }}
+                checkedColor="#00AA13"
+                textStyle={{ color: "#00AA13" }}
+                onPress={() => this.handleRole("driver")}
+              />
+              <CheckBox
+                center
+                title="Donator"
+                checkedIcon="dot-circle-o"
+                uncheckedIcon="circle-o"
+                checked={this.state.isDonatur}
+                containerStyle={{
+                  width: 0.3 * width,
+                  borderColor: "#fff",
+                  backgroundColor: "#fff"
+                }}
+                checkedColor="#00AA13"
+                textStyle={{ color: "#00AA13" }}
+                onPress={() => this.handleRole("donator")}
+              />
+            </View>
+            <View
+              style={{
+                flexDirection: "column",
+                alignContent: "center",
+                justifyContent: "center",
+                alignItems: "center",
+                marginBottom: 20
+              }}
+            >
+              <TouchableOpacity onPress={() => this.handleLogin()}>
+                <Text style={styles.button}>Register</Text>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => this.handleBack()}>
+                <Text style={{ textAlign: "center", marginTop: 10 }}>
+                  Kembali ke{" "}
+                  <Text
+                    style={{
+                      color: "#00AA13",
+                      textDecorationLine: "underline",
+                      fontWeight: "bold"
+                    }}
+                  >
+                    Login
+                  </Text>
                 </Text>
-              </Text>
-            </TouchableOpacity>
+              </TouchableOpacity>
+            </View>
           </View>
         </ScrollView>
       </View>
@@ -216,12 +273,9 @@ const styles = StyleSheet.create({
     height: height
   },
   container: {
-    // flexGrow: 1,
     paddingHorizontal: 45,
-    // top: 0.3 * height,
-    // position: "absolute",
-    width: width
-    // marginTop: -50
+    width: 0.9 * width,
+    paddingHorizontal: 5
   },
   logo: {
     alignItems: "center",
@@ -248,9 +302,7 @@ const styles = StyleSheet.create({
     fontSize: 14
   },
   button: {
-    marginTop: 40,
     height: 40,
-    alignItems: "center",
     backgroundColor: "#00AA13",
     borderRadius: 60,
     color: "#fff",
@@ -258,7 +310,6 @@ const styles = StyleSheet.create({
     padding: 6,
     fontSize: 16,
     fontWeight: "bold",
-    width: 0.4 * width,
-    left: 0.18 * width
+    width: 0.4 * width
   }
 });

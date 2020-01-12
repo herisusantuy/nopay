@@ -36,7 +36,7 @@ export default class Profile extends Component {
           <View style={styles.balanceContainer}>
             <View style={styles.myBalanceContainer}>
               <View style={styles.totalContainer}>
-                <Text style={styles.nominalText}>$ 10000</Text>
+                <Text style={styles.nominalText}>Rp 10.000.000,-</Text>
                 <Text style={styles.balanceText}>My Balance</Text>
               </View>
               <View style={styles.addIcon}>
@@ -46,7 +46,7 @@ export default class Profile extends Component {
             <View style={styles.transaction}>
               <View style={styles.income}>
                 <View style={styles.innerIncome}>
-                  <Text style={styles.smallValue}>$ 90</Text>
+                  <Text style={styles.smallValue}>Rp 5.600.000,-</Text>
                   <AntDesign name="arrowdown" size={15} color="red" />
                 </View>
                 <Text style={[styles.smallLabel, { marginRight: 15 }]}>
@@ -57,7 +57,7 @@ export default class Profile extends Component {
               <View style={styles.expense}>
                 <View style={styles.innerIncome}>
                   <AntDesign name="arrowup" size={15} color="green" />
-                  <Text style={styles.smallValue}>$ 90</Text>
+                  <Text style={styles.smallValue}>Rp 5.600.000,-</Text>
                 </View>
                 <Text style={styles.smallLabel}>Expense</Text>
               </View>
@@ -72,81 +72,49 @@ export default class Profile extends Component {
         >
           <View style={styles.historyValueContainer}>
             <Image
-              style={[
-                styles.photo,
-                {
-                  height: 70,
-                  width: 70,
-                  borderWidth: 2
-                  // borderColor: "#00AA13"
-                }
-              ]}
+              style={styles.smallPhoto}
               source={{
                 uri: "https://i.pravatar.cc/150?img=1"
               }}
             />
             <View>
-              <Text style={styles.smallValue}>$ 90</Text>
+              <Text style={styles.smallValue}>Rp 5.600.000,-</Text>
               <Text style={[styles.smallLabel, { marginLeft: 10 }]}>Magon</Text>
             </View>
           </View>
           <View style={styles.historyValueContainer}>
             <Image
-              style={[
-                styles.photo,
-                {
-                  height: 70,
-                  width: 70,
-                  borderWidth: 2
-                  // borderColor: "#00AA13"
-                }
-              ]}
+              style={styles.smallPhoto}
               source={{
                 uri: "https://i.pravatar.cc/150?img=2"
               }}
             />
             <View>
-              <Text style={styles.smallValue}>$ 90</Text>
+              <Text style={styles.smallValue}>Rp 5.600.000,-</Text>
               <Text style={[styles.smallLabel, { marginLeft: 10 }]}>Magon</Text>
             </View>
           </View>
           <View style={styles.historyValueContainer}>
             <Image
-              style={[
-                styles.photo,
-                {
-                  height: 70,
-                  width: 70,
-                  borderWidth: 2
-                  // borderColor: "#00AA13"
-                }
-              ]}
+              style={styles.smallPhoto}
               source={{
                 uri: "https://i.pravatar.cc/150?img=3"
               }}
             />
             <View>
-              <Text style={styles.smallValue}>$ 90</Text>
+              <Text style={styles.smallValue}>Rp 5.600.000,-</Text>
               <Text style={[styles.smallLabel, { marginLeft: 10 }]}>Magon</Text>
             </View>
           </View>
           <View style={styles.historyValueContainer}>
             <Image
-              style={[
-                styles.photo,
-                {
-                  height: 70,
-                  width: 70,
-                  borderWidth: 2
-                  // borderColor: "#00AA13"
-                }
-              ]}
+              style={styles.smallPhoto}
               source={{
                 uri: "https://i.pravatar.cc/150?img=4"
               }}
             />
             <View>
-              <Text style={styles.smallValue}>$ 90</Text>
+              <Text style={styles.smallValue}>Rp 5.600.000,-</Text>
               <Text style={[styles.smallLabel, { marginLeft: 10 }]}>Magon</Text>
             </View>
           </View>
@@ -155,223 +123,104 @@ export default class Profile extends Component {
         <View style={styles.donationHistoryContainer}>
           <View style={styles.detailDonationContainer}>
             <Image
-              style={[
-                styles.photo,
-                {
-                  height: 70,
-                  width: 70,
-                  borderWidth: 2
-                  // borderColor: "#00AA13"
-                }
-              ]}
+              style={styles.smallPhoto}
               source={{
                 uri: "https://i.pravatar.cc/150?img=5"
               }}
             />
-            <View style={{ marginVertical: 10 }}>
-              <Text style={{ fontSize: 18, fontWeight: "bold" }}>
+            <View>
+              <Text style={{ fontSize: 16, fontWeight: "bold" }}>
                 Ms Szhivani Dilux
               </Text>
-              <Text style={{ fontSize: 16, paddingVertical: 5 }}>
+              <Text style={{ fontSize: 14, paddingVertical: 5 }}>
                 15-01-2020, 8:00 AM
               </Text>
             </View>
-            <Text
-              style={{
-                marginVertical: 10,
-                fontSize: 20,
-                fontWeight: "bold",
-                color: "red"
-              }}
-            >
-              $154.00
-            </Text>
+            <Text style={styles.bigValue}>Rp 100.000,-</Text>
           </View>
           <View style={styles.detailDonationContainer}>
             <Image
-              style={[
-                styles.photo,
-                {
-                  height: 70,
-                  width: 70,
-                  borderWidth: 2
-                  // borderColor: "#00AA13"
-                }
-              ]}
+              style={styles.smallPhoto}
               source={{
                 uri: "https://i.pravatar.cc/150?img=6"
               }}
             />
-            <View style={{ marginVertical: 10 }}>
-              <Text style={{ fontSize: 18, fontWeight: "bold" }}>
+            <View>
+              <Text style={{ fontSize: 16, fontWeight: "bold" }}>
                 Ms Szhivani Dilux
               </Text>
-              <Text style={{ fontSize: 16, paddingVertical: 5 }}>
+              <Text style={{ fontSize: 14, paddingVertical: 5 }}>
                 15-01-2020, 8:00 AM
               </Text>
             </View>
-            <Text
-              style={{
-                marginVertical: 10,
-                fontSize: 20,
-                fontWeight: "bold",
-                color: "green"
-              }}
-            >
-              $154.00
-            </Text>
+            <Text style={styles.bigValue}>Rp 100.000,-</Text>
           </View>
           <View style={styles.detailDonationContainer}>
             <Image
-              style={[
-                styles.photo,
-                {
-                  height: 70,
-                  width: 70,
-                  borderWidth: 2
-                  // borderColor: "#00AA13"
-                }
-              ]}
+              style={styles.smallPhoto}
               source={{
                 uri: "https://i.pravatar.cc/150?img=7"
               }}
             />
-            <View style={{ marginVertical: 10 }}>
-              <Text style={{ fontSize: 18, fontWeight: "bold" }}>
+            <View>
+              <Text style={{ fontSize: 16, fontWeight: "bold" }}>
                 Ms Szhivani Dilux
               </Text>
-              <Text style={{ fontSize: 16, paddingVertical: 5 }}>
+              <Text style={{ fontSize: 14, paddingVertical: 5 }}>
                 15-01-2020, 8:00 AM
               </Text>
             </View>
-            <Text
-              style={{
-                marginVertical: 10,
-                fontSize: 20,
-                fontWeight: "bold",
-                color: "red"
-              }}
-            >
-              $154.00
-            </Text>
+            <Text style={styles.bigValue}>Rp 100.000,-</Text>
           </View>
           <View style={styles.detailDonationContainer}>
             <Image
-              style={[
-                styles.photo,
-                {
-                  height: 70,
-                  width: 70,
-                  borderWidth: 2
-                  // borderColor: "#00AA13"
-                }
-              ]}
+              style={styles.smallPhoto}
               source={{
                 uri: "https://i.pravatar.cc/150?img=8"
               }}
             />
-            <View style={{ marginVertical: 10 }}>
-              <Text style={{ fontSize: 18, fontWeight: "bold" }}>
+            <View>
+              <Text style={{ fontSize: 16, fontWeight: "bold" }}>
                 Ms Szhivani Dilux
               </Text>
-              <Text style={{ fontSize: 16, paddingVertical: 5 }}>
+              <Text style={{ fontSize: 14, paddingVertical: 5 }}>
                 15-01-2020, 8:00 AM
               </Text>
             </View>
-            <Text
-              style={{
-                marginVertical: 10,
-                fontSize: 20,
-                fontWeight: "bold",
-                color: "green"
-              }}
-            >
-              $154.00
-            </Text>
+            <Text style={styles.bigValue}>Rp 100.000,-</Text>
           </View>
           <View style={styles.detailDonationContainer}>
             <Image
-              style={[
-                styles.photo,
-                {
-                  height: 70,
-                  width: 70,
-                  borderWidth: 2
-                  // borderColor: "#00AA13"
-                }
-              ]}
+              style={styles.smallPhoto}
               source={{
                 uri: "https://i.pravatar.cc/150?img=9"
               }}
             />
-            <View style={{ marginVertical: 10 }}>
-              <Text style={{ fontSize: 18, fontWeight: "bold" }}>
+            <View>
+              <Text style={{ fontSize: 16, fontWeight: "bold" }}>
                 Ms Szhivani Dilux
               </Text>
-              <Text style={{ fontSize: 16, paddingVertical: 5 }}>
+              <Text style={{ fontSize: 14, paddingVertical: 5 }}>
                 15-01-2020, 8:00 AM
               </Text>
             </View>
-            <Text
-              style={{
-                marginVertical: 10,
-                fontSize: 20,
-                fontWeight: "bold",
-                color: "red"
-              }}
-            >
-              $154.00
-            </Text>
-          </View>
-          <View style={styles.detailDonationContainer}>
-            <Image
-              style={[
-                styles.photo,
-                {
-                  height: 70,
-                  width: 70,
-                  borderWidth: 2
-                  // borderColor: "#00AA13"
-                }
-              ]}
-              source={{
-                uri: "https://i.pravatar.cc/150?img=10"
-              }}
-            />
-            <View style={{ marginVertical: 10 }}>
-              <Text style={{ fontSize: 18, fontWeight: "bold" }}>
-                Ms Szhivani Dilux
-              </Text>
-              <Text style={{ fontSize: 16, paddingVertical: 5 }}>
-                15-01-2020, 8:00 AM
-              </Text>
-            </View>
-            <Text
-              style={{
-                marginVertical: 10,
-                fontSize: 20,
-                fontWeight: "bold",
-                color: "green"
-              }}
-            >
-              $154.00
-            </Text>
+            <Text style={styles.bigValue}>Rp 100.000,-</Text>
           </View>
         </View>
         <Text style={styles.historyText}>CONTACT INFORMATION</Text>
         <View style={styles.contactInfo}>
-          <View style={{ flex: 4 }}>
+          <View style={{ flex: 3 }}>
             <Text style={styles.contactLabel}>Email</Text>
           </View>
-          <View style={{ flex: 6 }}>
+          <View style={{ flex: 7 }}>
             <Text style={styles.contactValue}>ammyjohnson@gmail.com</Text>
           </View>
         </View>
         <View style={styles.contactInfo}>
-          <View style={{ flex: 4 }}>
+          <View style={{ flex: 3 }}>
             <Text style={styles.contactLabel}>Phone</Text>
           </View>
-          <View style={{ flex: 6 }}>
+          <View style={{ flex: 7 }}>
             <Text style={styles.contactValue}>082112133041</Text>
           </View>
         </View>
@@ -412,7 +261,6 @@ const styles = StyleSheet.create({
   scrolviewContainer: {
     flex: 1,
     marginVertical: 15,
-    // marginHorizontal: 15,
     paddingHorizontal: 10
   },
   container: {
@@ -424,7 +272,7 @@ const styles = StyleSheet.create({
     height: 0.4 * height,
     flexDirection: "column",
     marginHorizontal: 10,
-    width: 0.91 * width,
+    width: 0.95 * width,
     alignSelf: "center",
     borderRadius: 20
   },
@@ -432,7 +280,7 @@ const styles = StyleSheet.create({
     flex: 4,
     backgroundColor: "#00AA13",
     height: 100,
-    width: 0.9 * width,
+    width: 0.94 * width,
     borderTopRightRadius: 20,
     borderTopLeftRadius: 20,
     flexDirection: "row",
@@ -441,12 +289,11 @@ const styles = StyleSheet.create({
   balanceContainer: {
     flex: 6,
     backgroundColor: "#fff",
-    width: 0.91 * width,
+    width: 0.95 * width,
     borderColor: "grey",
     borderWidth: 0.5,
     borderRadius: 20,
     flexDirection: "column"
-    // marginBottom: 2
   },
   pictureContainer: {
     flex: 3,
@@ -481,7 +328,8 @@ const styles = StyleSheet.create({
   myBalanceContainer: {
     flex: 6,
     padding: 10,
-    flexDirection: "row"
+    flexDirection: "row",
+    paddingHorizontal: 20
   },
   transaction: {
     flex: 4,
@@ -518,10 +366,11 @@ const styles = StyleSheet.create({
   },
   totalContainer: {
     flex: 8,
-    justifyContent: "flex-start"
+    justifyContent: "flex-start",
+    paddingHorizontal: 10
   },
   nominalText: {
-    fontSize: 36,
+    fontSize: 30,
     fontWeight: "bold"
   },
   balanceText: {
@@ -534,7 +383,7 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   smallValue: {
-    fontSize: 24,
+    fontSize: 18,
     fontWeight: "bold",
     marginHorizontal: 10
   },
@@ -552,7 +401,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20
   },
   historyValueContainer: {
-    width: 0.5 * width,
+    width: 0.6 * width,
     height: 0.15 * height,
     borderRadius: 10,
     borderWidth: 0.5,
@@ -568,12 +417,12 @@ const styles = StyleSheet.create({
     flexDirection: "row"
   },
   contactLabel: {
-    fontSize: 16,
+    fontSize: 14,
     marginRight: 50,
     paddingHorizontal: 5
   },
   contactValue: {
-    fontSize: 16,
+    fontSize: 14,
     // marginRight: 50,
     paddingHorizontal: 5
   },
@@ -589,7 +438,19 @@ const styles = StyleSheet.create({
     borderBottomWidth: 0.5,
     borderBottomColor: "grey",
     borderTopColor: "grey",
-    paddingVertical: 10
+    padding: 10
+  },
+  bigValue: {
+    fontSize: 18,
+    fontWeight: "bold",
+    color: "green"
+  },
+  smallPhoto: {
+    borderWidth: 2,
+    borderColor: "#fff",
+    width: 60,
+    height: 60,
+    borderRadius: 60
   },
   label: {
     fontSize: 16,
