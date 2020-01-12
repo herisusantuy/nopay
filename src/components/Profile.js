@@ -413,36 +413,40 @@ const styles = StyleSheet.create({
     flex: 1,
     marginVertical: 15,
     // marginHorizontal: 15,
-    paddingHorizontal: 20
+    paddingHorizontal: 10
   },
   container: {
     // flex: 1,
     alignItems: "center",
     backgroundColor: "#00AA13",
-    // marginHorizontal: 20,
+    // backgroundColor: "pink",
     marginVertical: 10,
     height: 0.4 * height,
-    borderRadius: 20,
     flexDirection: "column",
-    width: 0.9 * width
+    marginHorizontal: 10,
+    width: 0.91 * width,
+    alignSelf: "center",
+    borderRadius: 20
   },
   profileContainer: {
     flex: 4,
     backgroundColor: "#00AA13",
     height: 100,
     width: 0.9 * width,
-    borderRadius: 20,
+    borderTopRightRadius: 20,
+    borderTopLeftRadius: 20,
     flexDirection: "row",
     paddingHorizontal: 15
   },
   balanceContainer: {
     flex: 6,
     backgroundColor: "#fff",
-    width: 0.9 * width,
-    borderColor: "#00AA13",
-    borderWidth: 1,
+    width: 0.91 * width,
+    borderColor: "grey",
+    borderWidth: 0.5,
     borderRadius: 20,
     flexDirection: "column"
+    // marginBottom: 2
   },
   pictureContainer: {
     flex: 3,
