@@ -36,17 +36,17 @@ export default class Profile extends Component {
           <View style={styles.balanceContainer}>
             <View style={styles.myBalanceContainer}>
               <View style={styles.totalContainer}>
-                <Text style={styles.nominalText}>Rp 10.000.000,-</Text>
+                <Text style={styles.nominalText}>Rp 1.000.000,-</Text>
                 <Text style={styles.balanceText}>My Balance</Text>
               </View>
               <View style={styles.addIcon}>
-                <AntDesign name="pluscircle" size={60} color="#00AA13" />
+                <AntDesign name="pluscircle" size={50} color="#00AA13" />
               </View>
             </View>
             <View style={styles.transaction}>
               <View style={styles.income}>
                 <View style={styles.innerIncome}>
-                  <Text style={styles.smallValue}>Rp 5.600.000,-</Text>
+                  <Text style={styles.smallValue}>Rp 560.000,-</Text>
                   <AntDesign name="arrowdown" size={15} color="red" />
                 </View>
                 <Text style={[styles.smallLabel, { marginRight: 15 }]}>
@@ -57,7 +57,7 @@ export default class Profile extends Component {
               <View style={styles.expense}>
                 <View style={styles.innerIncome}>
                   <AntDesign name="arrowup" size={15} color="green" />
-                  <Text style={styles.smallValue}>Rp 5.600.000,-</Text>
+                  <Text style={styles.smallValue}>Rp 560.000,-</Text>
                 </View>
                 <Text style={styles.smallLabel}>Expense</Text>
               </View>
@@ -78,7 +78,7 @@ export default class Profile extends Component {
               }}
             />
             <View>
-              <Text style={styles.smallValue}>Rp 5.600.000,-</Text>
+              <Text style={styles.smallValue}>Rp 560.000,-</Text>
               <Text style={[styles.smallLabel, { marginLeft: 10 }]}>Magon</Text>
             </View>
           </View>
@@ -90,7 +90,7 @@ export default class Profile extends Component {
               }}
             />
             <View>
-              <Text style={styles.smallValue}>Rp 5.600.000,-</Text>
+              <Text style={styles.smallValue}>Rp 560.000,-</Text>
               <Text style={[styles.smallLabel, { marginLeft: 10 }]}>Magon</Text>
             </View>
           </View>
@@ -102,7 +102,7 @@ export default class Profile extends Component {
               }}
             />
             <View>
-              <Text style={styles.smallValue}>Rp 5.600.000,-</Text>
+              <Text style={styles.smallValue}>Rp 560.000,-</Text>
               <Text style={[styles.smallLabel, { marginLeft: 10 }]}>Magon</Text>
             </View>
           </View>
@@ -114,7 +114,7 @@ export default class Profile extends Component {
               }}
             />
             <View>
-              <Text style={styles.smallValue}>Rp 5.600.000,-</Text>
+              <Text style={styles.smallValue}>Rp 560.000,-</Text>
               <Text style={[styles.smallLabel, { marginLeft: 10 }]}>Magon</Text>
             </View>
           </View>
@@ -419,7 +419,7 @@ const styles = StyleSheet.create({
   contactLabel: {
     fontSize: 14,
     marginRight: 50,
-    paddingHorizontal: 5
+    paddingLeft: 5
   },
   contactValue: {
     fontSize: 14,
@@ -427,8 +427,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 5
   },
   donationHistoryContainer: {
-    padding: 10,
-    paddingHorizontal: 20
+    padding: 10
+    // paddingHorizontal: 20
   },
   detailDonationContainer: {
     flexDirection: "row",

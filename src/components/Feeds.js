@@ -71,8 +71,14 @@ export default function Feeds() {
 
   const handleSelectMoney = i => {
     listMoney[i].isSelected = !listMoney[i].isSelected;
-    setListMoney([...listMoney]);
-    let newTotal = total + listMoney[i].nominal;
+    let newList = listMoney.map(list => {
+      if (listMoney[i].nominal !== list.nominal && list.isSelected == true) {
+        list.isSelected = false;
+      }
+      return list;
+    });
+    setListMoney([...newList]);
+    let newTotal = listMoney[i].nominal;
     setTotal(newTotal);
   };
 
@@ -105,7 +111,7 @@ export default function Feeds() {
                 fontWeight: "bold",
                 textAlign: "center",
                 color: "black",
-                marginVertical: 20
+                marginVertical: 5
               }}
             >
               Total donasi yang akan diberikan:{" "}
@@ -115,10 +121,32 @@ export default function Feeds() {
                 fontSize: 24,
                 fontWeight: "bold",
                 color: "black",
-                marginBottom: 20
+                marginBottom: 5
               }}
             >
               Rp {numeral(total).format("0,0")},-
+            </Text>
+            <Text
+              style={{
+                fontSize: 14,
+                // fontWeight: "bold",
+                textAlign: "center",
+                color: "black",
+                marginVertical: 5
+              }}
+            >
+              Silahkan lakukan pembayaran dengan menyertakan ID transaksi Anda
+              (ID:001) dibagian konfrimasi pembayaran ke nomor Ovo berikut:{" "}
+            </Text>
+            <Text
+              style={{
+                fontSize: 24,
+                fontWeight: "bold",
+                color: "black",
+                marginBottom: 10
+              }}
+            >
+              0856 5579 8471
             </Text>
             <TouchableOpacity onPress={() => useModalVisible(!modalVisible)}>
               <View
@@ -126,7 +154,7 @@ export default function Feeds() {
                   justifyContent: "center",
                   alignItems: "center",
                   marginHorizontal: 20,
-                  marginVertical: 20
+                  marginVertical: 10
                 }}
               >
                 <Text

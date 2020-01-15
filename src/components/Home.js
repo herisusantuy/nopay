@@ -51,6 +51,7 @@ class Home extends Component {
     this.props.navigation.navigate("Donasi");
   }
   render() {
+    console.log(this.props.coin, "LIST");
     let slides, foodList;
     if (this.props.count > 0) {
       slides = this.props.coin.slice(0, 5).map((coin, i) => {
@@ -63,7 +64,7 @@ class Home extends Component {
                 }}
                 style={{
                   width: width - 20,
-                  height: 250,
+                  height: 280,
                   marginVertical: 10,
                   alignItems: "center",
                   justifyContent: "center",
@@ -110,7 +111,7 @@ class Home extends Component {
       foodList = this.props.coin
         .slice(5, this.props.coin.length)
         .map((coin, i) => {
-          let categories = coin.categories.map(item => {
+          let categories = coin.categories.slice(0, 2).map(item => {
             return (
               <View
                 style={{
@@ -190,6 +191,10 @@ class Home extends Component {
                 >
                   {categories}
                 </View>
+                <View>
+                  <Text>{coin.location.display_address[0]}</Text>
+                  <Text>{coin.location.display_address[1]}</Text>
+                </View>
               </View>
             </TouchableOpacity>
           );
@@ -204,26 +209,50 @@ class Home extends Component {
         >
           {slides}
         </ScrollView>
-        <TouchableOpacity onPress={() => this.handleDonate()}>
-          <View style={{ justifyContent: "center", marginHorizontal: 20 }}>
+        <ScrollView horizontal={false} showsVerticalScrollIndicator={false}>
+          <View
+            style={{
+              justifyContent: "center",
+              marginHorizontal: 20,
+              marginVertical: 5
+            }}
+          >
+            <Text
+              style={{ textAlign: "center", fontSize: 16, fontWeight: "bold" }}
+            >
+              Total Donasi
+            </Text>
             <Text
               style={{
-                alignItems: "center",
-                backgroundColor: "#00AA13",
-                borderRadius: 15,
-                color: "#fff",
                 textAlign: "center",
-                paddingVertical: 10,
-                fontSize: 20,
+                fontSize: 30,
                 fontWeight: "bold",
-                marginBottom: 20
+                paddingVertical: 10
               }}
             >
-              Donate
+              Rp 1000.000,-
             </Text>
           </View>
-        </TouchableOpacity>
-        <ScrollView horizontal={false} showsVerticalScrollIndicator={false}>
+          <TouchableOpacity onPress={() => this.handleDonate()}>
+            <View style={{ justifyContent: "center", marginHorizontal: 20 }}>
+              <Text
+                style={{
+                  alignItems: "center",
+                  backgroundColor: "#00AA13",
+                  borderRadius: 15,
+                  color: "#fff",
+                  textAlign: "center",
+                  paddingVertical: 10,
+                  fontSize: 20,
+                  fontWeight: "bold",
+                  marginBottom: 20
+                }}
+              >
+                Donate
+              </Text>
+            </View>
+          </TouchableOpacity>
+
           <View
             style={{
               flexWrap: "wrap",

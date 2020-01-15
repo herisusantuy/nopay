@@ -24,7 +24,7 @@ export default class Registrasi extends Component {
       username: "",
       password: "",
       isDriver: false,
-      isDonatur: true
+      isDonatur: false
     };
     this.handleLogin = this.handleLogin.bind(this);
     this.handleBack = this.handleBack.bind(this);
@@ -188,7 +188,7 @@ export default class Registrasi extends Component {
                 marginTop: 25
               }}
             >
-              Silahkan pilih role Anda
+              Silahkan pilih peran Anda
             </Text>
             <View
               style={{

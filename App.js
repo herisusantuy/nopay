@@ -250,8 +250,8 @@ const StackNavigator = createStackNavigator(
 );
 
 const SwitchNavigator = createSwitchNavigator({
-  Login: { screen: Login },
-  Registrasi: { screen: Registrasi },
+  // Login: { screen: Login },
+  // Registrasi: { screen: Registrasi },
   Home: { screen: StackNavigator }
 });
 

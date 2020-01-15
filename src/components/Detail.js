@@ -199,15 +199,14 @@ export default class Detail extends Component {
             }}
             style={{
               // width: width - 20,
-              height: 250,
+              height: 200,
               marginVertical: 10,
               alignItems: "center",
               justifyContent: "center",
               borderRadius: 10
             }}
           />
-          <ScrollView horizontal={false}>
-            {/* <View style={{ marginVertical: 15, flex: 1 }}> */}
+          <ScrollView showsVerticalScrollIndicator={false}>
             <View
               style={{
                 flexDirection: "row",
@@ -342,18 +341,10 @@ export default class Detail extends Component {
                 </Text>
               </View>
             </TouchableOpacity>
-            {/* </View> */}
           </ScrollView>
         </View>
       </View>
     );
-    // return data ? (
-    //   <View>
-    //     <Text>Order</Text>
-    //   </View>
-    // ) : (
-    //   <Loader />
-    // );
   }
 }
 
