@@ -18,6 +18,7 @@ import Settings from "./src/components/Settings";
 import Feeds from "./src/components/Feeds";
 import Registrasi from "./src/components/Registrasi";
 import Profile from "./src/components/Profile";
+import ScanBarcode from "./src/components/ScanBarcode";
 import { Provider } from "react-redux";
 import configureStore from "./src/redux/store";
 const store = configureStore();
@@ -97,6 +98,27 @@ const HomeStack = createStackNavigator({
     navigationOptions: ({ navigation }) => {
       return {
         headerTitle: "Donasi",
+        headerTintColor: "#00AA13",
+        headerStyle: {
+          backgroundColor: "#fff"
+        },
+        headerTitleStyle: {
+          fontWeight: "bold",
+          fontSize: 24,
+          alignSelf: "center",
+          textAlign: "left",
+          justifyContent: "center",
+          flex: 1,
+          textAlignVertical: "center"
+        }
+      };
+    }
+  },
+  ScanBarcode: {
+    screen: ScanBarcode,
+    navigationOptions: ({ navigation }) => {
+      return {
+        headerTitle: "Scan Barcode",
         headerTintColor: "#00AA13",
         headerStyle: {
           backgroundColor: "#fff"
@@ -250,8 +272,8 @@ const StackNavigator = createStackNavigator(
 );
 
 const SwitchNavigator = createSwitchNavigator({
-  // Login: { screen: Login },
-  // Registrasi: { screen: Registrasi },
+  Login: { screen: Login },
+  Registrasi: { screen: Registrasi },
   Home: { screen: StackNavigator }
 });
 

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "464630227082",
+    "firebase_url": "https://nopay-491bf.firebaseio.com",
+    "project_id": "nopay-491bf",
+    "storage_bucket": "nopay-491bf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:464630227082:android:b70d7734a2e3ad0b304d73",
+        "android_client_info": {
+          "package_name": "com.nopay"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "464630227082-li40p4706srkvr2etfl6jaeoemj9llbt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcNpiaXY_nRCoarBQCdE293t18HrvL8yY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "464630227082-li40p4706srkvr2etfl6jaeoemj9llbt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

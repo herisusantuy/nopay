@@ -26,6 +26,7 @@ export default class Detail extends Component {
       total: 0,
       modalVisible: false
     };
+    this.handlerOrder = this.handlerOrder.bind(this);
   }
 
   onPlus() {
@@ -42,6 +43,9 @@ export default class Detail extends Component {
     this.setState({
       modalVisible: visible
     });
+  }
+  handlerOrder() {
+    this.props.navigation.navigate("ScanBarcode");
   }
 
   render() {
@@ -266,9 +270,7 @@ export default class Detail extends Component {
                 50
               </Text>
             </View>
-            <TouchableOpacity
-              onPress={() => this.setModalVisible(!this.state.modalVisible)}
-            >
+            <TouchableOpacity onPress={() => this.handlerOrder()}>
               <View
                 style={{
                   justifyContent: "center",
