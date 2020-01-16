@@ -29,10 +29,12 @@ export default class Login extends Component {
   componentDidMount() {
     SplashScreen.hide();
   }
-  handleLogin() {
+  handleLogin(username) {
     // this.props.navigation.navigate("Home");
     if (this.state.username === "user" && this.state.password === "1") {
-      this.props.navigation.navigate("Home");
+      this.props.navigation.navigate("Home", {
+        username
+      });
     } else {
       alert(`Use username "user" & password "1"`);
       this.setState({

@@ -21,6 +21,9 @@ import { Sae } from "react-native-textinput-effects";
 import ModalDropdown from "react-native-modal-dropdown";
 import numeral from "numeral";
 import Modal from "react-native-modalbox";
+import AppLink from "react-native-app-link";
+import gojek from "../assets/gopay.png";
+import ovo from "../assets/ovo.png";
 
 const initialLayout = { width: Dimensions.get("window").width };
 
@@ -82,12 +85,50 @@ export default function Feeds() {
     setTotal(newTotal);
   };
 
+  handleDonateOVO = () => {
+    let url = "https://play.google.com/store/apps/details?id=ovo.id&hl=in";
+    AppLink.maybeOpenURL(url, {
+      appName: "OVO",
+      // appStoreId,
+      // appStoreLocale,
+      playStoreId: "ovo.id"
+    })
+      .then(() => {
+        // do stuff
+        console.log("success");
+        useModalVisible(false);
+      })
+      .catch(err => {
+        // handle error
+        console.log("error");
+      });
+  };
+  handleDonateGoPay = () => {
+    let url =
+      "https://play.google.com/store/apps/details?id=com.gojek.app&hl=in";
+    AppLink.openInStore({
+      appName: "Gojek",
+      appStoreId,
+      appStoreLocale,
+      playStoreId: "com.gojek.app"
+    })
+      .then(() => {
+        // do stuff
+        console.log("success");
+        useModalVisible(false);
+      })
+      .catch(err => {
+        // handle error
+        console.log("error");
+      });
+  };
+
   const FirstRoute = () => (
     <ScrollView showsVerticalScrollIndicator={false}>
       <View>
         <Modal
           style={{
-            width: width - 50,
+            width: width - 20,
             height: 300,
             justifyContent: "space-between",
             // alignItems: "center",
@@ -136,7 +177,8 @@ export default function Feeds() {
               }}
             >
               Silahkan lakukan pembayaran dengan menyertakan ID transaksi Anda
-              (ID:001) dibagian konfrimasi pembayaran ke nomor Ovo berikut:{" "}
+              (ID:001) dibagian konfrimasi pembayaran ke nomor Ovo atau Gopay
+              berikut:{" "}
             </Text>
             <Text
               style={{
@@ -148,33 +190,70 @@ export default function Feeds() {
             >
               0856 5579 8471
             </Text>
-            <TouchableOpacity onPress={() => useModalVisible(!modalVisible)}>
-              <View
-                style={{
-                  justifyContent: "center",
-                  alignItems: "center",
-                  marginHorizontal: 20,
-                  marginVertical: 10
-                }}
-              >
-                <Text
+            <View
+              style={{
+                flexDirection: "row",
+                justifyContent: "space-between",
+                marginVertical: 10
+              }}
+            >
+              <TouchableOpacity onPress={() => handleDonateOVO()}>
+                <View
                   style={{
+                    justifyContent: "center",
                     alignItems: "center",
-                    backgroundColor: "#00AA13",
-                    borderRadius: 15,
-                    color: "#fff",
-                    textAlign: "center",
-                    paddingVertical: 10,
-                    fontSize: 20,
-                    fontWeight: "bold",
-                    marginBottom: 20,
-                    width: 200
+                    marginHorizontal: 10,
+                    marginVertical: 10,
+                    width: 160,
+                    height: 40,
+                    borderWidth: 1,
+                    borderColor: "#00AA13",
+                    padding: 5,
+                    borderRadius: 10
                   }}
                 >
-                  Bayar
-                </Text>
-              </View>
-            </TouchableOpacity>
+                  <Image
+                    source={require("../assets/ovo.png")}
+                    style={{
+                      width: 150,
+                      height: 30,
+                      marginVertical: 10,
+                      alignItems: "center",
+                      justifyContent: "center",
+                      resizeMode: "contain"
+                    }}
+                  />
+                </View>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => handleDonateGoPay()}>
+                <View
+                  style={{
+                    justifyContent: "center",
+                    alignItems: "center",
+                    marginHorizontal: 10,
+                    marginVertical: 10,
+                    width: 160,
+                    height: 40,
+                    borderWidth: 1,
+                    borderColor: "#00AA13",
+                    padding: 5,
+                    borderRadius: 10
+                  }}
+                >
+                  <Image
+                    source={require("../assets/gopay.png")}
+                    style={{
+                      width: 150,
+                      height: 30,
+                      marginVertical: 10,
+                      alignItems: "center",
+                      justifyContent: "center",
+                      resizeMode: "contain"
+                    }}
+                  />
+                </View>
+              </TouchableOpacity>
+            </View>
           </View>
         </Modal>
         <View

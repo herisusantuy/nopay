@@ -26,6 +26,7 @@ const store = configureStore();
 class App extends Component {
   render() {
     console.disableYellowBox = true;
+    console.log(this.props, "PROPS");
     return (
       <Provider store={store}>
         <AppContainer />
