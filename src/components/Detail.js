@@ -223,7 +223,7 @@ export default class Detail extends Component {
               >
                 {item.name}
               </Text>
-              <Text
+              {/* <Text
                 style={{
                   fontSize: 20,
                   fontWeight: "bold",
@@ -231,7 +231,7 @@ export default class Detail extends Component {
                 }}
               >
                 Rp {this.state.price},-
-              </Text>
+              </Text> */}
             </View>
 
             <Text style={{ fontSize: 14 }}>
@@ -240,54 +240,6 @@ export default class Detail extends Component {
               ullamcorper dolor posuere varius in sed enim. Sed ullamcorper nisl
               nisl.
             </Text>
-            <View
-              style={{
-                flexDirection: "row",
-                justifyContent: "space-between",
-                marginTop: 15,
-                alignItems: "center"
-              }}
-            >
-              <Text
-                style={{
-                  fontSize: 20,
-                  fontWeight: "bold",
-                  color: "black"
-                }}
-              >
-                Jumlah
-              </Text>
-              <View
-                style={{
-                  flexDirection: "row",
-                  justifyContent: "space-between",
-                  padding: 3,
-                  paddingHorizontal: 10,
-                  alignItems: "center",
-                  borderWidth: 1,
-                  borderColor: "#00AA13",
-                  borderRadius: 3,
-                  width: 100
-                }}
-              >
-                <TouchableOpacity onPress={this.onMinus.bind(this)}>
-                  <FontAwesome5 name="minus" size={15} color="#00AA13" />
-                </TouchableOpacity>
-                <Text
-                  style={{
-                    fontSize: 20,
-                    fontWeight: "bold",
-                    color: "black",
-                    marginHorizontal: 3
-                  }}
-                >
-                  {this.state.total}
-                </Text>
-                <TouchableOpacity onPress={this.onPlus.bind(this)}>
-                  <FontAwesome5 name="plus" size={15} color="#00AA13" />
-                </TouchableOpacity>
-              </View>
-            </View>
             <View
               style={{
                 flexDirection: "row",
@@ -302,7 +254,7 @@ export default class Detail extends Component {
                   color: "black"
                 }}
               >
-                Total
+                Stok Makanan
               </Text>
               <Text
                 style={{
@@ -311,7 +263,7 @@ export default class Detail extends Component {
                   color: "black"
                 }}
               >
-                Rp {this.state.price * this.state.total},-
+                50
               </Text>
             </View>
             <TouchableOpacity
@@ -321,7 +273,9 @@ export default class Detail extends Component {
                 style={{
                   justifyContent: "center",
                   marginHorizontal: 20,
-                  marginVertical: 20
+                  marginVertical: 50,
+                  width: 0.5 * width,
+                  alignSelf: "center"
                 }}
               >
                 <Text
