@@ -15,35 +15,32 @@ import { Sae } from "react-native-textinput-effects";
 import logo from "../assets/bg_registrasi.png";
 import SplashScreen from "react-native-splash-screen";
 import { CheckBox } from "react-native-elements";
+import { BASE_URL } from "../general/general";
+import axios from "axios";
+import { connect } from "react-redux";
+import { createUserRequest } from "../redux/action/users";
+import Loader from "../components/Loader";
 
-export default class Registrasi extends Component {
+class Registrasi extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      username: "",
-      password: "",
       isDriver: false,
-      isDonatur: false
+      isDonatur: false,
+      username: "",
+      full_name: "",
+      address: "",
+      phone: "",
+      email: "",
+      password: "",
+      is_driver: "",
+      loading: false,
+      error_msg: ""
     };
-    this.handleLogin = this.handleLogin.bind(this);
     this.handleBack = this.handleBack.bind(this);
     this.handleRole = this.handleRole.bind(this);
-  }
-  componentDidMount() {
-    SplashScreen.hide();
-  }
-  handleLogin() {
-    // this.props.navigation.navigate("Home");
-    if (this.state.username === "user01" && this.state.password === "123") {
-      this.props.navigation.navigate("Home");
-    } else {
-      alert(`Use username "user01" & password "123"`);
-      this.setState({
-        username: "",
-        password: ""
-      });
-    }
+    this.handleRegister = this.handleRegister.bind(this);
   }
   handleBack() {
     this.props.navigation.navigate("Login");
@@ -52,17 +49,84 @@ export default class Registrasi extends Component {
     if (role == "driver") {
       this.setState({
         isDriver: !this.state.isDriver,
-        isDonatur: false
+        isDonatur: false,
+        is_driver: "driver"
       });
     } else {
       this.setState({
         isDriver: false,
-        isDonatur: !this.state.isDonatur
+        isDonatur: !this.state.isDonatur,
+        is_driver: "non driver"
       });
     }
   }
+  verify() {
+    if (!this.state.username) {
+      alert("Field Username tidak boleh kosong!");
+      return false;
+    }
+    if (!this.state.full_name) {
+      alert("Field Nama Lengkap tidak boleh kosong!");
+      return false;
+    }
+    if (!this.state.address) {
+      alert("Field Alamat tidak boleh kosong!");
+      return false;
+    }
+    if (!this.state.phone) {
+      alert("Field Handphone tidak boleh kosong!");
+      return false;
+    }
+    if (!this.state.email) {
+      alert("Field Email tidak boleh kosong!");
+      return false;
+    }
+    if (!this.state.password) {
+      alert("Field Password tidak boleh kosong!");
+      return false;
+    }
+    if (!this.state.is_driver) {
+      alert("Silahkan pilih peran Anda!");
+      return false;
+    }
+    return true;
+  }
+  handleRegister() {
+    if (this.verify()) {
+      this.setState({ loading: true });
+      let param = {
+        username: this.state.username.toLowerCase(),
+        full_name: this.state.full_name,
+        address: this.state.address,
+        phone: this.state.phone,
+        email: this.state.email,
+        password: this.state.password,
+        is_driver: this.state.is_driver
+      };
+      let url = BASE_URL + "/register";
+      axios({
+        method: "POST",
+        url: url,
+        data: param,
+        headers: {
+          "Content-Type": "application/json"
+        }
+      })
+        .then(response => {
+          this.setState({ loading: false });
+          if (response.status == 201) {
+            alert(response.data.message);
+            this.props.navigation.navigate("Login");
+          }
+        })
+        .catch(error => {
+          alert(error);
+          this.setState({ loading: false });
+        });
+    }
+  }
   render() {
-    return (
+    return !this.state.loading ? (
       <View style={styles.boxContainer}>
         <View
           style={{
@@ -114,8 +178,8 @@ export default class Registrasi extends Component {
               borderColor={"blue"}
               autoCapitalize={"none"}
               autoCorrect={false}
-              onChangeText={username => this.setState({ username })}
-              value={this.state.username}
+              onChangeText={full_name => this.setState({ full_name })}
+              value={this.state.full_name}
             />
             <Sae
               inputStyle={styles.input}
@@ -130,8 +194,8 @@ export default class Registrasi extends Component {
               borderColor={"blue"}
               autoCapitalize={"none"}
               autoCorrect={false}
-              onChangeText={username => this.setState({ username })}
-              value={this.state.username}
+              onChangeText={address => this.setState({ address })}
+              value={this.state.address}
             />
             <Sae
               inputStyle={styles.input}
@@ -146,8 +210,8 @@ export default class Registrasi extends Component {
               borderColor={"blue"}
               autoCapitalize={"none"}
               autoCorrect={false}
-              onChangeText={username => this.setState({ username })}
-              value={this.state.username}
+              onChangeText={phone => this.setState({ phone })}
+              value={this.state.phone}
             />
             <Sae
               inputStyle={styles.input}
@@ -162,8 +226,8 @@ export default class Registrasi extends Component {
               borderColor={"blue"}
               autoCapitalize={"none"}
               autoCorrect={false}
-              onChangeText={username => this.setState({ username })}
-              value={this.state.username}
+              onChangeText={email => this.setState({ email })}
+              value={this.state.email}
             />
             <Sae
               inputStyle={styles.input}
@@ -237,7 +301,7 @@ export default class Registrasi extends Component {
                 marginBottom: 20
               }}
             >
-              <TouchableOpacity onPress={() => this.handleLogin()}>
+              <TouchableOpacity onPress={() => this.handleRegister()}>
                 <Text style={styles.button}>Register</Text>
               </TouchableOpacity>
               <TouchableOpacity onPress={() => this.handleBack()}>
@@ -258,9 +322,15 @@ export default class Registrasi extends Component {
           </View>
         </ScrollView>
       </View>
+    ) : (
+      <Loader />
     );
   }
 }
+
+export default connect(({ users }) => ({ users }), {
+  createUserRequest
+})(Registrasi);
 
 export const { width, height } = Dimensions.get("window");
 

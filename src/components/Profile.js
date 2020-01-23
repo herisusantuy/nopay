@@ -12,6 +12,16 @@ import {
 import AntDesign from "react-native-vector-icons/AntDesign";
 
 export default class Profile extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {};
+    this.handleLogout = this.handleLogout.bind(this);
+  }
+  handleLogout() {
+    this.props.navigation.navigate("Login");
+  }
+
   render() {
     return (
       <ScrollView
@@ -244,10 +254,36 @@ export default class Profile extends Component {
                 paddingVertical: 10,
                 fontSize: 20,
                 fontWeight: "bold",
-                marginVertical: 30
+                marginTop: 30
               }}
             >
               Edit Profile
+            </Text>
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => this.handleLogout()}>
+          <View
+            style={{
+              justifyContent: "center",
+              marginHorizontal: 20,
+              flexDirection: "column"
+            }}
+          >
+            <Text
+              style={{
+                alignItems: "center",
+                backgroundColor: "red",
+                borderRadius: 15,
+                color: "#fff",
+                textAlign: "center",
+                paddingVertical: 10,
+                fontSize: 20,
+                fontWeight: "bold",
+                marginTop: 15,
+                marginBottom: 30
+              }}
+            >
+              Logout
             </Text>
           </View>
         </TouchableOpacity>

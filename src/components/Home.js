@@ -51,7 +51,7 @@ class Home extends Component {
     this.props.navigation.navigate("Donasi");
   }
   render() {
-    console.log(this.props.coin, "LIST");
+    console.log(this.props.screenProps, "screen");
     let slides, foodList;
     if (this.props.count > 0) {
       slides = this.props.coin.slice(0, 5).map((coin, i) => {

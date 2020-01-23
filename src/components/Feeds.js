@@ -106,10 +106,10 @@ export default function Feeds() {
   handleDonateGoPay = () => {
     let url =
       "https://play.google.com/store/apps/details?id=com.gojek.app&hl=in";
-    AppLink.openInStore({
+    AppLink.maybeOpenURL(url, {
       appName: "Gojek",
-      appStoreId,
-      appStoreLocale,
+      // appStoreId,
+      // appStoreLocale,
       playStoreId: "com.gojek.app"
     })
       .then(() => {
@@ -128,8 +128,8 @@ export default function Feeds() {
       <View>
         <Modal
           style={{
-            width: width - 20,
-            height: 300,
+            width: width - 50,
+            height: 0.5 * height,
             justifyContent: "space-between",
             // alignItems: "center",
             padding: 15,
@@ -177,7 +177,12 @@ export default function Feeds() {
               }}
             >
               Silahkan lakukan pembayaran dengan menyertakan ID transaksi Anda
-              (ID:001) dibagian konfrimasi pembayaran ke nomor Ovo atau Gopay
+              (ID:001) dibagian konfrimasi pembayaran ke nomor{" "}
+              <Text style={{ fontWeight: "bold", fontSize: 16 }}>Ovo</Text> atau
+              <Text style={{ fontWeight: "bold", fontSize: 16 }}>
+                {" "}
+                Gopay
+              </Text>{" "}
               berikut:{" "}
             </Text>
             <Text
@@ -204,7 +209,7 @@ export default function Feeds() {
                     alignItems: "center",
                     marginHorizontal: 10,
                     marginVertical: 10,
-                    width: 160,
+                    width: 0.3 * width,
                     height: 40,
                     borderWidth: 1,
                     borderColor: "#00AA13",
@@ -215,7 +220,7 @@ export default function Feeds() {
                   <Image
                     source={require("../assets/ovo.png")}
                     style={{
-                      width: 150,
+                      width: 0.1 * width,
                       height: 30,
                       marginVertical: 10,
                       alignItems: "center",
@@ -232,7 +237,7 @@ export default function Feeds() {
                     alignItems: "center",
                     marginHorizontal: 10,
                     marginVertical: 10,
-                    width: 160,
+                    width: 0.3 * width,
                     height: 40,
                     borderWidth: 1,
                     borderColor: "#00AA13",
@@ -243,7 +248,7 @@ export default function Feeds() {
                   <Image
                     source={require("../assets/gopay.png")}
                     style={{
-                      width: 150,
+                      width: 0.2 * width,
                       height: 30,
                       marginVertical: 10,
                       alignItems: "center",

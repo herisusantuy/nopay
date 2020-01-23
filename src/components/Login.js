@@ -14,6 +14,9 @@ import FontAwesomeIcon from "react-native-vector-icons/FontAwesome";
 import { Sae } from "react-native-textinput-effects";
 import logo from "../assets/bg_login.png";
 import SplashScreen from "react-native-splash-screen";
+import { BASE_URL } from "../general/general";
+import axios from "axios";
+import Loader from "../components/Loader";
 
 export default class Login extends Component {
   constructor(props) {
@@ -21,7 +24,8 @@ export default class Login extends Component {
 
     this.state = {
       username: "",
-      password: ""
+      password: "",
+      loading: false
     };
     this.handleLogin = this.handleLogin.bind(this);
     this.handleRegistrasi = this.handleRegistrasi.bind(this);
@@ -29,25 +33,56 @@ export default class Login extends Component {
   componentDidMount() {
     SplashScreen.hide();
   }
-  handleLogin(username) {
-    // this.props.navigation.navigate("Home");
-    if (this.state.username === "user" && this.state.password === "1") {
-      this.props.navigation.navigate("Home", {
-        username
-      });
-    } else {
-      alert(`Use username "user" & password "1"`);
-      this.setState({
-        username: "",
-        password: ""
-      });
+  verify() {
+    if (!this.state.username) {
+      alert("Field Username tidak boleh kosong!");
+      return false;
+    }
+    if (!this.state.password) {
+      alert("Field Password tidak boleh kosong!");
+      return false;
+    }
+    return true;
+  }
+  handleLogin() {
+    if (this.verify()) {
+      this.setState({ loading: true });
+      let param = {
+        username: this.state.username,
+        password: this.state.password
+      };
+      let url = BASE_URL + "/login";
+      axios({
+        method: "POST",
+        url: url,
+        data: param,
+        headers: {
+          "Content-Type": "application/json"
+        }
+      })
+        .then(response => {
+          this.setState({ loading: false });
+          console.log(response, "RESPONSE");
+          if (response.status == 200) {
+            if (response.data.role == "driver") {
+              this.props.navigation.navigate("HomeDriver");
+            } else {
+              this.props.navigation.navigate("HomeNonDriver");
+            }
+          }
+        })
+        .catch(error => {
+          alert(error);
+          this.setState({ loading: false });
+        });
     }
   }
   handleRegistrasi() {
     this.props.navigation.navigate("Registrasi");
   }
   render() {
-    return (
+    console.log(this.props, "PROPS");
+    return !this.state.loading ? (
       <View style={styles.boxContainer} showsVerticalScrollIndicator={false}>
         <ImageBackground style={styles.logo} source={logo} />
         <ScrollView style={styles.container}>
@@ -104,6 +139,8 @@ export default class Login extends Component {
           </TouchableOpacity>
         </ScrollView>
       </View>
+    ) : (
+      <Loader />
     );
   }
 }

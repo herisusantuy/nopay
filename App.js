@@ -207,7 +207,7 @@ const AccountStack = createStackNavigator({
   }
 });
 
-const TabNavigator = createBottomTabNavigator(
+const TabNavigatorDriver = createBottomTabNavigator(
   {
     Coins: {
       screen: HomeStack,
@@ -227,15 +227,6 @@ const TabNavigator = createBottomTabNavigator(
         )
       }
     },
-    // Settings: {
-    //   screen: SettingStack,
-    //   navigationOptions: {
-    //     tabBarLabel: "Home",
-    //     tabBarIcon: ({ tintColor, activeTintColor }) => (
-    //       <FontAwesome5 name="home" size={25} color={tintColor} />
-    //     )
-    //   }
-    // },
     Account: {
       screen: AccountStack,
       navigationOptions: {
@@ -263,9 +254,55 @@ const TabNavigator = createBottomTabNavigator(
     }
   }
 );
-const StackNavigator = createStackNavigator(
+const TabNavigatorNonDriver = createBottomTabNavigator(
   {
-    TabNavigator: TabNavigator
+    Feeds: {
+      screen: Feedstack,
+      navigationOptions: {
+        tabBarLabel: "Donasi",
+        tabBarIcon: ({ tintColor, activeTintColor }) => (
+          <FontAwesome5 name="donate" size={25} color={tintColor} />
+        )
+      }
+    },
+    Account: {
+      screen: AccountStack,
+      navigationOptions: {
+        tabBarLabel: "Profile",
+        tabBarIcon: ({ tintColor, activeTintColor }) => (
+          <FontAwesome5 name="user-alt" size={25} color={tintColor} />
+        )
+      }
+    }
+  },
+  {
+    tabBarOptions: {
+      style: {
+        backgroundColor: "#fff",
+        elevation: 20,
+        height: 60,
+        paddingVertical: 5,
+        borderBottomColor: "red"
+      },
+      activeTintColor: "#00AA13",
+      showIcon: true,
+      labelStyle: {
+        fontSize: 14
+      }
+    }
+  }
+);
+const StackNavigatorDriver = createStackNavigator(
+  {
+    TabNavigatorDriver: TabNavigatorDriver
+  },
+  {
+    headerMode: "none"
+  }
+);
+const StackNavigatorNonDriver = createStackNavigator(
+  {
+    TabNavigatorNonDriver: TabNavigatorNonDriver
   },
   {
     headerMode: "none"
@@ -275,7 +312,8 @@ const StackNavigator = createStackNavigator(
 const SwitchNavigator = createSwitchNavigator({
   Login: { screen: Login },
   Registrasi: { screen: Registrasi },
-  Home: { screen: StackNavigator }
+  HomeDriver: { screen: StackNavigatorDriver },
+  HomeNonDriver: { screen: StackNavigatorNonDriver }
 });
 
 const AppContainer = createAppContainer(SwitchNavigator);
