@@ -62,13 +62,16 @@ export default class Login extends Component {
       })
         .then(response => {
           this.setState({ loading: false });
-          console.log(response, "RESPONSE");
           if (response.status == 200) {
             if (response.data.role == "driver") {
               this.props.navigation.navigate("HomeDriver");
             } else {
               this.props.navigation.navigate("HomeNonDriver");
             }
+            this.setState({
+              username: "",
+              password: ""
+            });
           }
         })
         .catch(error => {

@@ -117,6 +117,15 @@ class Registrasi extends Component {
           if (response.status == 201) {
             alert(response.data.message);
             this.props.navigation.navigate("Login");
+            this.setState({
+              username: "",
+              full_name: "",
+              address: "",
+              phone: "",
+              email: "",
+              password: "",
+              is_driver: ""
+            });
           }
         })
         .catch(error => {
@@ -136,14 +145,15 @@ class Registrasi extends Component {
             justifyContent: "center",
             alignContent: "center",
             alignItems: "center",
-            borderColor: "#00AA13",
-            borderWidth: 2,
+            // borderColor: "#00AA13",
+            // borderWidth: 2,
             borderRadius: 80
           }}
         >
           <Image
             style={styles.logo}
-            source={{ uri: "https://i.pravatar.cc/150?img=10" }}
+            // source={{ uri: "https://i.pravatar.cc/150?img=10" }}
+            source={require("../assets/logo.png")}
           />
         </View>
 
